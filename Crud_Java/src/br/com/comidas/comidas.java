@@ -4,22 +4,22 @@ import java.sql.Date;
 
 public class comidas {
 	private String Nome;
-	private Float valor;
+	private Double valor;
 	private String Criador;
 	private Date data;
 	
-	public comidas(String Nome,Float valor, String Criador, Date data) {
+	public comidas(String Nome,Double valor, String Criador, Date data) {
 		this.setNome(Nome);
 		this.setValor(valor);
 		this.setCriador(Criador);
 		this.setData(data);
 	}
 
-	public Float getValor() {
+	public Double getValor() {
 		return valor;
 	}
 
-	public void setValor(Float valor) {
+	public void setValor(Double valor) {
 		this.valor = valor;
 	}
 
