@@ -42,7 +42,7 @@ public class comidas {
 	public void setData(Date data) {
 		this.data = data;
 	}
-	public String getname() {
+	public String getNome() {
 		return Nome;
 	}
 	public  void setNome(String Nome) {

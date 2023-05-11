@@ -14,16 +14,25 @@ public class ConnectionFactory {
 	//Caminho banco de dados, porta, nome do banco de dados. 
 	private static final String DataBase_URL = "jdbc:mysql://localhost:3306/comida";
 	
+	
+	
+	
+	
 	/*
 	 * conexão com o banco de dados 
 	 * */
-	private static Connection CreateConnectionToMYSQL() throws Exception {
+	public static Connection CreateConnectionToMYSQL() throws Exception {
 		//faz com que a class seja carregada pela JVM
 		Class.forName("com.mysql.jdbc.Driver");
 		//cria a conexão com o banco de dados
 		Connection conection = DriverManager.getConnection(DataBase_URL,Username,Senha);
 		return conection;
 	}
+	
+	
+	
+	
+	
 	
 	public static void main(String[] args) throws Exception {
 		// Recuperar uma conexão do banco de dados 
