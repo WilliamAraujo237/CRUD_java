@@ -10,11 +10,10 @@ public class comidas {
 	private Date data;
 	
 	//Construtor do aobjeto Comida
-	public comidas(String Nome,Double valor, String Criador, Date data) {
+	public comidas(String Nome,Double valor, String Criador) {
 		this.setNome(Nome);
 		this.setValor(valor);
 		this.setCriador(Criador);
-		this.setData(data);
 	}
 	
 	// Métodos Get e Set das variaveis
