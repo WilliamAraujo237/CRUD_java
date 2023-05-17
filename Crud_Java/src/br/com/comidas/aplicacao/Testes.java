@@ -22,9 +22,14 @@ public class Testes {
 		x.setData(new Date(0));
 		z.setData(new Date(15052003));
 		 
-		comida.SAVE(c);
-		comida.SAVE(x);
-		comida.SAVE(z);
+		//comida.SAVE(c);
+		//comida.SAVE(x);
+		//comida.SAVE(z);
+		
+		// Resultados da consulta do banco de dados 
+		for (comidas c1 : comidaDAO.getComidas()) {
+			System.out.println("nome do prato : "+ c1.getNome());
+		}
 	}
 
 }

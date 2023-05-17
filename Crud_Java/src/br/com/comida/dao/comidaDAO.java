@@ -63,7 +63,7 @@ public class comidaDAO {
 		}
 	}
 	
-	public List<comidas> getComidas() {
+	public static List<comidas> getComidas() {
 		String sql = "SELECT * FROM COMIDA";
 		
 		List<comidas> comidas = new ArrayList<comidas>();
