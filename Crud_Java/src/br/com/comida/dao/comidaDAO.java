@@ -19,6 +19,7 @@ public class comidaDAO {
  * d: DELET
  * */
 	
+	//Função para salvar registros no banco de dados.
 	public void SAVE(comidas Conection) {
 
 		
@@ -63,7 +64,48 @@ public class comidaDAO {
 		}
 	}
 	
-	public static List<comidas> getComidas() {
+	//Função para dar UPDATE em um registro no banco de dados.
+	public  void UPDATE(comidas Conection) {
+		String sql = "UPDATE COMIDA SET NOME = ?,VALOR = ?, CRIADOR = ?" + " WHERE ID = ?";
+		//Conexão com o banco
+		Connection conn = null;
+		//Classe que vai informar os dados do *****UPDATE******
+		PreparedStatement pstm = null;
+		
+		try {
+			//Cria uma conexão com o banco de dados
+			conn = ConnectionFactory.CreateConnectionToMYSQL();
+			
+			//Criamos uma PreparedStatement para executar uma Query
+			pstm = (PreparedStatement) conn.prepareStatement(sql);
+			
+			pstm.setString(1, Conection.getNome());
+			pstm.setDouble(2, Conection.getValor());
+			pstm.setString(3, Conection.getCriador());
+			pstm.setInt(4, Conection.getID());
+			
+			pstm.execute();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			//Fechar conecxões
+			try {
+				if (pstm != null) {
+					pstm.close();
+				}
+				
+				if (conn != null) {
+					conn.close();
+				}
+				
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+	}
+	
+	//Função para dar SELECT "consultar" registros do banco de dados.
+	public static List<comidas> SELECT() {
 		String sql = "SELECT * FROM COMIDA";
 		
 		List<comidas> comidas = new ArrayList<comidas>();
@@ -116,5 +158,35 @@ public class comidaDAO {
 			}
 		}
 		return comidas;
+	}
+	
+	//Função para deletar um registro no banco de dados.
+	public void DELET(int id) {
+		String sql = "DELETE FROM COMIDA WHERE ID = ?";
+		
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		
+		try {
+			conn = ConnectionFactory.CreateConnectionToMYSQL();
+			pstm = (PreparedStatement) conn.prepareStatement(sql);
+			
+			pstm.setInt(1, id);
+			
+			pstm.execute();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if (conn != null) {
+					conn.close();
+				}
+				if(pstm != null) {
+					pstm.close();
+				}
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
 	}
 }

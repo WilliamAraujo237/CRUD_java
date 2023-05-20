@@ -8,6 +8,7 @@ public class comidas {
 	private Double valor;
 	private String Criador;
 	private Date data;
+	private int ID;
 	
 	//Construtor do aobjeto Comida
 	public comidas(String Nome,Double valor, String Criador) {
@@ -46,5 +47,13 @@ public class comidas {
 	}
 	public  void setNome(String Nome) {
 		this.Nome = Nome;
+	}
+
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
 	}
 }
